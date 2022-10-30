@@ -1,7 +1,5 @@
 name: yamdb workflow
 
-context: ./api_yamdb/
-
 on: [push]
 
 jobs:
