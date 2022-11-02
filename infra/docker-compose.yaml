@@ -5,9 +5,9 @@ services:
     volumes:
       - db_value:/var/lib/postgresql/data/
     env_file:
-      - ./.env
+      - ../.env
   web:
-    build: ../api_yamdb
+    image: lust0mania/yamdb:v.1.0
     restart: always
     volumes:
       - static_value:/app/static/
@@ -15,7 +15,7 @@ services:
     depends_on:
       - db
     env_file:
-      - ./.env
+      - ../.env
   nginx:
     image: nginx:1.21.3-alpine
     ports:
