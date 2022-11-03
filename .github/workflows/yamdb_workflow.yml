@@ -55,7 +55,7 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           passphrase: ${{ secrets.PASSPHRASE }}
           run:
-            cd ../infra/
+            cd ./infra/
           script: |
             sudo docker pull ${{ secrets.DOCKER_USERNAME }}/yamdb
             sudo docker compose stop
