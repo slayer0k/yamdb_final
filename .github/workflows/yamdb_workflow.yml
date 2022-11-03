@@ -54,8 +54,7 @@ jobs:
           username: ${{ secrets.USER }}
           key: ${{ secrets.SSH_KEY }}
           passphrase: ${{ secrets.PASSPHRASE }}
-          with:
-            file: infra/docker-compose.yaml
+          context: ./infra/
           script: |
             sudo docker compose stop
             sudo docker compose rm web
