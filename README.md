@@ -68,7 +68,7 @@ python manage.py runserver
 - DB_PORT=5432
 
 #### Статус проекта
-https://github.com/slayer0k/yamdb_final/actions/workflows/yamdb_workflow.yml/badge.svg
+(https://github.com/slayer0k/yamdb_final/actions/workflows/yamdb_workflow.yml/badge.svg)
 
 ### Авторы
 Сергей Чукин, Кира Изгагина, Дмитрий Самойленко
