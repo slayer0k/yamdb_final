@@ -20,6 +20,7 @@ jobs:
     - name: Test with flake8 and pytest
       run: |
         python -m flake8
+        python -m pytest
   
   build_and_push_to_dockerhub:
     name: Build and Push Docker image to DockerHub
@@ -74,4 +75,4 @@ jobs:
         with:
           to: ${{ secrets.TELEGRAM_TO }}
           token: ${{ secrets.TELEGRAM_TOKEN }}
-          message: ${{ github.workflow }} успешно выполнен!
+          message: ${{ github.workflow }} успешно выполнен!!
