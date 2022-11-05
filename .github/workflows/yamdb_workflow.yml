@@ -80,7 +80,7 @@ jobs:
         with:
           to: ${{ secrets.TELEGRAM_TO }}
           token: ${{ secrets.TELEGRAM_TOKEN }}
-          message: |
+          message: 
           Был сделан ${{ github.event_name }} автором ${{ github.actor }} в репозиторий ${{ github.repository}} 
-          Ссылка на изменения: https://github.com/${{ github.repository }}/commit/${{ github.sha }}
+          Ссылка на изменения - https://github.com/${{ github.repository }}/commit/${{ github.sha }}
           ${{ github.workflow }} успешно выполнен!
