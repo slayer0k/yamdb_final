@@ -25,7 +25,7 @@ jobs:
   build_and_push_to_dockerhub:
     name: Build and Push Docker image to DockerHub
     runs-on: ubuntu-latest
-    if: ${{ github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master' }}
+    if: ${{ github.ref == 'refs/heads/master' }}
     needs: tests
     steps:
       - name: Check out repo
@@ -46,7 +46,7 @@ jobs:
   
   deploy:
     runs-on: ubuntu-latest
-    if: ${{ github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master' }}
+    if: ${{ github.ref == 'refs/heads/main' }}
     needs: build_and_push_to_dockerhub
     steps:
       - name: executing remote ssh commands to deploy
@@ -56,9 +56,10 @@ jobs:
           username: ${{ secrets.USER }}
           key: ${{ secrets.SSH_KEY }}
           script: |
-            sudo docker compose down
-            sudo docker pull ${{ secrets.DOCKER_USERNAME }}/yamdb
             cd yamdb/
+            sudo docker compose stop
+            sudo docker compose rm web
+            sudo docker pull ${{ secrets.DOCKER_USERNAME }}/yamdb
             rm .env
             touch .env
             echo DB_ENGINE=${{ secrets.DB_ENGINE }} >> .env
