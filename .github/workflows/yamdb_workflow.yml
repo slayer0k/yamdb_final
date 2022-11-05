@@ -79,4 +79,7 @@ jobs:
         with:
           to: ${{ secrets.TELEGRAM_TO }}
           token: ${{ secrets.TELEGRAM_TOKEN }}
-          message: ${{ github.workflow }} успешно пройден! обновления установлены ${{ github.actor }}
+          message:
+            ${{ github.workflow }} успешно пройден! обновления установлены ${{ github.actor }}
+            были внесены следующие изменения ${{ github.event.commits[0].message }}
+            https://github.com/${{ github.repository }}/commit/${{ github.sha }}
